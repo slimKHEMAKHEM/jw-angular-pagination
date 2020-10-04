@@ -4,7 +4,7 @@ import paginate from 'jw-paginate';
 
 @Component({
     selector: 'jw-pagination',
-  template: `<button * ngIf="show" type = "button" class="showmore" (click) = "setPage(pager.currentPage + 1)"> <span class="showmore-text" > Show more rates < /span></button >`
+  template: `<button *ngIf="show" type = "button" class="showmore" (click) = "setPage(pager.currentPage + 1)"> <span class="showmore-text" > Show more rates < /span></button>`
 })
 
 export class JwPaginationComponent implements OnInit, OnChanges {
