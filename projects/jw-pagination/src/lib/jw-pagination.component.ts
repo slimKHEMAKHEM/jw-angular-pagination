@@ -4,7 +4,23 @@ import paginate from 'jw-paginate';
 
 @Component({
     selector: 'jw-pagination',
-  template: `<button *ngIf="show" type = "button" class="showmore" (click) = "setPage(pager.currentPage + 1)"> <span class="showmore-text" > Show more rates < /span></button>`
+  template: `<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
+        <a (click)="setPage(1)" class="page-link">First</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
+        <a (click)="setPage(pager.currentPage - 1)" class="page-link">Previous</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
+        <a (click)="setPage(page)" class="page-link">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
+        <a (click)="setPage(pager.currentPage + 1)" class="page-link">Next</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
+        <a (click)="setPage(pager.totalPages)" class="page-link">Last</a>
+    </li>
+</ul>`
 })
 
 export class JwPaginationComponent implements OnInit, OnChanges {

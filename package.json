@@ -7,8 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "npm run build && npm deploy"
+    "e2e": "ng e2e"
+    //"postinstall": "cd node_modules/jw-pagination && npm deploy &&  npm install && npm run build"
   },
   "precommit": [
     "build",
@@ -49,6 +49,6 @@
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.8.3"
+    "typescript": "~3.7.5"
   }
 }
